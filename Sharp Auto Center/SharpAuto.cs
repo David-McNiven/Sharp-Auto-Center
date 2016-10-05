@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace Sharp_Auto_Center
 {
-    public partial class Form1 : Form
+    public partial class SharpAutoForm : Form
     {
-        public Form1()
+        public SharpAutoForm()
         {
             InitializeComponent();
+        }
+
+        private void SharpAutoForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
