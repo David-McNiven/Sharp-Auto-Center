@@ -63,6 +63,7 @@
             this.colourToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.PriceFontDialog = new System.Windows.Forms.FontDialog();
             this.AdditionalItemsGroupBox.SuspendLayout();
             this.ExteriorFinishGroupBox.SuspendLayout();
             this.SharpAutoMenuStrip.SuspendLayout();
@@ -93,6 +94,7 @@
             this.BasePriceTextBox.Size = new System.Drawing.Size(100, 20);
             this.BasePriceTextBox.TabIndex = 0;
             this.BasePriceTextBox.Text = "0.00";
+            this.BasePriceTextBox.Leave += new System.EventHandler(this.ValidateTextBox_TextChanged);
             // 
             // TradeinAllowanceTextBox
             // 
@@ -101,6 +103,7 @@
             this.TradeinAllowanceTextBox.Size = new System.Drawing.Size(100, 20);
             this.TradeinAllowanceTextBox.TabIndex = 1;
             this.TradeinAllowanceTextBox.Text = "0.00";
+            this.TradeinAllowanceTextBox.Leave += new System.EventHandler(this.ValidateTextBox_TextChanged);
             // 
             // AdditionalItemsLabel
             // 
@@ -149,40 +152,50 @@
             // 
             // AdditionalOptionsTextBox
             // 
+            this.AdditionalOptionsTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.AdditionalOptionsTextBox.Location = new System.Drawing.Point(258, 97);
             this.AdditionalOptionsTextBox.Name = "AdditionalOptionsTextBox";
+            this.AdditionalOptionsTextBox.ReadOnly = true;
             this.AdditionalOptionsTextBox.Size = new System.Drawing.Size(100, 20);
             this.AdditionalOptionsTextBox.TabIndex = 2;
             this.AdditionalOptionsTextBox.Text = "0.00";
             // 
             // SubTotalTextBox
             // 
+            this.SubTotalTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.SubTotalTextBox.Location = new System.Drawing.Point(258, 129);
             this.SubTotalTextBox.Name = "SubTotalTextBox";
+            this.SubTotalTextBox.ReadOnly = true;
             this.SubTotalTextBox.Size = new System.Drawing.Size(100, 20);
             this.SubTotalTextBox.TabIndex = 3;
             this.SubTotalTextBox.Text = "0.00";
             // 
             // SalesTaxTextBox
             // 
+            this.SalesTaxTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.SalesTaxTextBox.Location = new System.Drawing.Point(258, 161);
             this.SalesTaxTextBox.Name = "SalesTaxTextBox";
+            this.SalesTaxTextBox.ReadOnly = true;
             this.SalesTaxTextBox.Size = new System.Drawing.Size(100, 20);
             this.SalesTaxTextBox.TabIndex = 4;
             this.SalesTaxTextBox.Text = "0.00";
             // 
             // TotalTextBox
             // 
+            this.TotalTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.TotalTextBox.Location = new System.Drawing.Point(258, 193);
             this.TotalTextBox.Name = "TotalTextBox";
+            this.TotalTextBox.ReadOnly = true;
             this.TotalTextBox.Size = new System.Drawing.Size(100, 20);
             this.TotalTextBox.TabIndex = 5;
             this.TotalTextBox.Text = "0.00";
             // 
             // AmountDueTextBox
             // 
+            this.AmountDueTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.AmountDueTextBox.Location = new System.Drawing.Point(258, 225);
             this.AmountDueTextBox.Name = "AmountDueTextBox";
+            this.AmountDueTextBox.ReadOnly = true;
             this.AmountDueTextBox.Size = new System.Drawing.Size(100, 20);
             this.AmountDueTextBox.TabIndex = 6;
             this.AmountDueTextBox.Text = "0.00";
@@ -208,6 +221,7 @@
             this.ComputerNavigationCheckBox.TabIndex = 2;
             this.ComputerNavigationCheckBox.Text = "Computer Navigation";
             this.ComputerNavigationCheckBox.UseVisualStyleBackColor = true;
+            this.ComputerNavigationCheckBox.CheckedChanged += new System.EventHandler(this.CheckBox_CheckedChanged);
             // 
             // LeatherInteriorCheckBox
             // 
@@ -218,6 +232,7 @@
             this.LeatherInteriorCheckBox.TabIndex = 1;
             this.LeatherInteriorCheckBox.Text = "Leather Interior";
             this.LeatherInteriorCheckBox.UseVisualStyleBackColor = true;
+            this.LeatherInteriorCheckBox.CheckedChanged += new System.EventHandler(this.CheckBox_CheckedChanged);
             // 
             // StereoSystemCheckBox
             // 
@@ -228,6 +243,7 @@
             this.StereoSystemCheckBox.TabIndex = 0;
             this.StereoSystemCheckBox.Text = "Stereo System";
             this.StereoSystemCheckBox.UseVisualStyleBackColor = true;
+            this.StereoSystemCheckBox.CheckedChanged += new System.EventHandler(this.CheckBox_CheckedChanged);
             // 
             // ExteriorFinishGroupBox
             // 
@@ -250,7 +266,7 @@
             this.CustomizedFinishRadioButton.TabIndex = 2;
             this.CustomizedFinishRadioButton.Text = "Customized Detailing";
             this.CustomizedFinishRadioButton.UseVisualStyleBackColor = true;
-            this.CustomizedFinishRadioButton.CheckedChanged += new System.EventHandler(this.RadioButton_CheckedChanged);
+            this.CustomizedFinishRadioButton.Click += new System.EventHandler(this.RadioButton_Click);
             // 
             // PearlizedFinishRadioButton
             // 
@@ -261,7 +277,7 @@
             this.PearlizedFinishRadioButton.TabIndex = 1;
             this.PearlizedFinishRadioButton.Text = "Pearlized";
             this.PearlizedFinishRadioButton.UseVisualStyleBackColor = true;
-            this.PearlizedFinishRadioButton.CheckedChanged += new System.EventHandler(this.RadioButton_CheckedChanged);
+            this.PearlizedFinishRadioButton.Click += new System.EventHandler(this.RadioButton_Click);
             // 
             // StandardFinishRadioButton
             // 
@@ -274,7 +290,7 @@
             this.StandardFinishRadioButton.TabStop = true;
             this.StandardFinishRadioButton.Text = "Standard";
             this.StandardFinishRadioButton.UseVisualStyleBackColor = true;
-            this.StandardFinishRadioButton.CheckedChanged += new System.EventHandler(this.RadioButton_CheckedChanged);
+            this.StandardFinishRadioButton.Click += new System.EventHandler(this.RadioButton_Click);
             // 
             // CalculateButton
             // 
@@ -370,7 +386,7 @@
             this.colourToolStripMenuItem.Name = "colourToolStripMenuItem";
             this.colourToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.colourToolStripMenuItem.Text = "C&olour";
-            this.colourToolStripMenuItem.Click += new System.EventHandler(this.colourToolStripMenuItem_Click);
+            this.colourToolStripMenuItem.Click += new System.EventHandler(this.fontToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -386,6 +402,12 @@
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "&About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // PriceFontDialog
+            // 
+            this.PriceFontDialog.MaxSize = 18;
+            this.PriceFontDialog.MinSize = 8;
+            this.PriceFontDialog.ShowColor = true;
             // 
             // SharpAutoForm
             // 
@@ -414,6 +436,7 @@
             this.Controls.Add(this.SharpAutoMenuStrip);
             this.MainMenuStrip = this.SharpAutoMenuStrip;
             this.Name = "SharpAutoForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sharp Auto Center";
             this.Load += new System.EventHandler(this.SharpAutoForm_Load);
             this.AdditionalItemsGroupBox.ResumeLayout(false);
@@ -464,6 +487,7 @@
         private System.Windows.Forms.ToolStripMenuItem colourToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.FontDialog PriceFontDialog;
     }
 }
 
